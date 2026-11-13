@@ -1,0 +1,208 @@
+{
+  "track": {
+    "slug": "combinada",
+    "title": "Hardware e Redes (Integradora)",
+    "description": "A DEFINIR",
+    "order": 3,
+    "isLocked": true
+  },
+  "lessons": [
+    {
+      "order": 1,
+      "title": "A Internet Tem uma Estrutura Física",
+      "contentFile": "combinada/aula-1.md",
+      "simulationType": "click_diagram",
+      "simulationConfig": {
+        "name": "Mapeamento de Rota Intercontinental de Dados",
+        "mechanics": "Exibição de um mapa-múndi interativo com linhas representativas de cabos submarinos reais. O estudante clica em um botão para “Solicitar página dos EUA” e deve guiar o pacote clicando na ordem correta das estruturas físicas envolvidas: Servidor do Provedor Local → IXP Nacional → Estação de Cabo Submarino → Landing Station Internacional → Data Center de Destino."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "O que a “nuvem” é, na realidade?",
+            "options": [
+              "Uma metáfora para uma gigante infraestrutura física mundial de data centers, cabos submarinos e backbones",
+              "Algo imaterial, que existe apenas no ar",
+              "Uma rede formada somente por satélites",
+              "Um software que funciona sem nenhum hardware"
+            ],
+            "correctOption": 0,
+            "explanation": "A nuvem depende de milhares de quilômetros de cabos, edifícios industriais e roteadores de porte industrial."
+          },
+          {
+            "text": "Qual parcela do tráfego internacional de dados é transportada pelos cabos submarinos de fibra óptica?",
+            "options": ["Cerca de 10%", "Cerca de 50%", "Mais de 95%", "Menos de 5%"],
+            "correctOption": 2,
+            "explanation": "Os cabos submarinos unem os continentes e transportam mais de 95% do tráfego internacional, por pulsos de luz laser."
+          },
+          {
+            "text": "O que é um IXP (Internet Exchange Point)?",
+            "options": [
+              "Um cabo transoceânico de fibra óptica",
+              "Um local onde operadoras, provedores de conteúdo e redes se conectam fisicamente para trocar tráfego diretamente",
+              "Um data center com milhares de servidores",
+              "Um roteador residencial"
+            ],
+            "correctOption": 1,
+            "explanation": "No IXP, diferentes redes se conectam fisicamente para trocar tráfego de forma eficiente."
+          },
+          {
+            "text": "O que é a “última milha”?",
+            "options": [
+              "O trecho do cabo que passa pelo fundo do oceano",
+              "A rede interna de um data center",
+              "O backbone de uma operadora multinacional",
+              "O trecho em que os ISPs estendem a infraestrutura física até os roteadores residenciais e corporativos"
+            ],
+            "correctOption": 3,
+            "explanation": "Os ISPs compram acesso aos backbones globais e levam a infraestrutura, por fibra ou postes, até os roteadores dos clientes."
+          },
+          {
+            "text": "Qual é a ordem do caminho de uma mensagem do Brasil até um servidor nos Estados Unidos?",
+            "options": [
+              "Roteador local → ISP → IXP em São Paulo → cabo submarino → data center",
+              "IXP → roteador local → data center → cabo submarino → ISP",
+              "Data center → cabo submarino → IXP → ISP → roteador local",
+              "Cabo submarino → ISP → roteador local → IXP → data center"
+            ],
+            "correctOption": 0,
+            "explanation": "O sinal sai do aparelho para o roteador local e segue pelo ISP, passa pelo IXP, atravessa o oceano pelo cabo submarino e chega ao data center."
+          }
+        ]
+      }
+    },
+    {
+      "order": 2,
+      "title": "O Caminho dos Dados",
+      "contentFile": "combinada/aula-2.md",
+      "simulationType": "drag_drop",
+      "simulationConfig": {
+        "name": "O Encasulamento do Dado (Do Chip ao Meio Físico)",
+        "mechanics": "O estudante interage com um modelo virtual 3D que mostra o interior do gabinete. Ele deve arrastar o bloco de dados saindo da CPU, descendo pelas trilhas da placa-mãe, entrando na placa de rede (NIC) para receber o endereço MAC e, por fim, sendo convertido em sinal luminoso na porta de fibra óptica."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "O que a placa de rede (NIC) faz com os dados?",
+            "options": [
+              "Transforma os dados em energia elétrica para a fonte",
+              "Converte os bits em sinais físicos: elétricos, pulsos de luz ou ondas de rádio",
+              "Converte o endereço IP em endereço MAC",
+              "Traduz nomes de sites em endereços IP"
+            ],
+            "correctOption": 1,
+            "explanation": "A NIC intermedia o computador e o meio de rede, convertendo os bits em sinais elétricos (cobre), luz (fibra) ou rádio (Wi-Fi)."
+          },
+          {
+            "text": "Qual é a diferença entre o endereço MAC e o endereço IP?",
+            "options": [
+              "Os dois são lógicos e alteráveis",
+              "O IP é físico e o MAC é lógico",
+              "O MAC muda a cada conexão",
+              "O MAC é físico, gravado na fábrica e imutável, enquanto o IP é lógico e alterável"
+            ],
+            "correctOption": 3,
+            "explanation": "O MAC é gravado no chip da placa de rede na fabricação, enquanto o IP é um endereço lógico que pode mudar."
+          },
+          {
+            "text": "Para que serve o DNS?",
+            "options": [
+              "Criptografar a comunicação entre o navegador e o site",
+              "Gravar o endereço MAC na placa de rede",
+              "Traduzir nomes legíveis, como site.com, no endereço IP numérico do servidor",
+              "Distribuir energia para os componentes"
+            ],
+            "correctOption": 2,
+            "explanation": "O DNS (Domain Name System) traduz o nome do site no IP do servidor, para o pacote ser despachado pela rede."
+          },
+          {
+            "text": "Como os dados chegam da CPU até a placa de rede dentro do computador?",
+            "options": [
+              "A CPU monta a requisição na RAM e os dados trafegam pelo barramento PCIe da placa-mãe até a NIC",
+              "Os dados saem direto do SSD para o cabo de fibra",
+              "Os dados passam pela GPU antes de chegar à NIC",
+              "Os dados vão da RAM para o monitor e depois para a NIC"
+            ],
+            "correctOption": 0,
+            "explanation": "A CPU processa e monta a requisição na RAM, e os dados seguem pelo barramento PCIe até a placa de rede."
+          },
+          {
+            "text": "O que a NIC adiciona ao criar o frame de rede?",
+            "options": [
+              "Somente o IP de destino",
+              "O endereço MAC de origem e o endereço MAC de destino",
+              "Uma chave de criptografia HTTPS",
+              "A tabela de roteamento"
+            ],
+            "correctOption": 1,
+            "explanation": "A NIC encapsula os dados com os endereços MAC de origem e destino, formando o frame que segue para o switch."
+          }
+        ]
+      }
+    },
+    {
+      "order": 3,
+      "title": "Do Clique à Página na Tela",
+      "contentFile": "combinada/aula-3.md",
+      "simulationType": "click_diagram",
+      "simulationConfig": {
+        "name": "Centro de Comando de Diagnóstico de Sistemas",
+        "mechanics": "O aluno atua como um engenheiro de sistemas encarregado de resolver uma falha simulada. O sistema indica um sintoma (ex.: “A página demora 15 segundos para iniciar o download, mas o download ocorre em alta velocidade”). O aluno deve navegar pelas quatro fases e identificar corretamente que a falha está no tempo de busca do armazenamento do servidor e não na placa de rede ou na conexão do cliente."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "Quais são, em ordem, as 4 fases do ciclo de vida de um clique até a página aparecer?",
+            "options": [
+              "Servidor → rede → entrada local → exibição",
+              "Rede → entrada local → exibição → servidor",
+              "Entrada e requisição local → tráfego global → processamento no servidor → processamento gráfico e exibição",
+              "Exibição → entrada local → rede → servidor"
+            ],
+            "correctOption": 2,
+            "explanation": "O clique gera a requisição no cliente, atravessa a rede mundial, é processado pelo servidor e a resposta é desenhada na tela pela GPU local."
+          },
+          {
+            "text": "O que o interruptor do mouse envia quando o usuário clica?",
+            "options": [
+              "Um pacote HTTPS direto ao servidor",
+              "Uma interrupção de hardware para a CPU",
+              "Um sinal para a GPU desenhar a página",
+              "Um endereço MAC para o roteador"
+            ],
+            "correctOption": 1,
+            "explanation": "O mouse envia uma interrupção de hardware à CPU, que interpreta o clique e instrui o navegador a criar a requisição HTTPS."
+          },
+          {
+            "text": "Se o servidor usa um HD mecânico em vez de SSDs rápidos, onde está o atraso, mesmo com uma internet de 1 Gbps?",
+            "options": [
+              "Na Fase 3, na busca dos dados no armazenamento do servidor",
+              "Na Fase 1, na placa de rede do cliente",
+              "Na Fase 4, na GPU do cliente",
+              "Na Fase 2, nos cabos transoceânicos"
+            ],
+            "correctOption": 0,
+            "explanation": "Na Fase 3, o servidor busca os dados da página no armazenamento, e um HD mecânico torna essa etapa lenta, independentemente da conexão do cliente."
+          },
+          {
+            "text": "Qual componente do cliente desenha a interface pixel por pixel e a exibe no monitor?",
+            "options": ["A placa de rede (NIC)", "A memória RAM", "O SSD do servidor", "A GPU"],
+            "correctOption": 3,
+            "explanation": "Na Fase 4, a CPU transfere as instruções visuais para a GPU, que desenha a interface e a exibe no monitor."
+          },
+          {
+            "text": "A página demora 15 segundos para iniciar o download, mas o download ocorre em alta velocidade. Onde está a falha mais provável?",
+            "options": [
+              "Na placa de rede do cliente",
+              "Na conexão de internet do cliente",
+              "No tempo de busca no armazenamento do servidor",
+              "Na GPU do cliente"
+            ],
+            "correctOption": 2,
+            "explanation": "O download rápido mostra que a rede e a placa de rede do cliente estão boas. A demora inicial aponta para a busca dos dados no armazenamento do servidor."
+          }
+        ]
+      }
+    }
+  ]
+}

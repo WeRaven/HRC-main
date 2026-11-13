@@ -1,0 +1,8 @@
+{
+  "name": "hrc",
+  "private": true,
+  "workspaces": ["backend"],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace backend"
+  }
+}

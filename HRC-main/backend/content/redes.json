@@ -1,0 +1,198 @@
+{
+  "track": {
+    "slug": "redes",
+    "title": "Redes de Computadores",
+    "description": "A DEFINIR",
+    "order": 2,
+    "isLocked": false
+  },
+  "lessons": [
+    {
+      "order": 1,
+      "title": "O que são Redes de Computadores?",
+      "contentFile": "redes/aula-1.md",
+      "simulationType": "drag_drop",
+      "simulationConfig": {
+        "name": "Classificador de Escopo de Redes",
+        "mechanics": "O usuário recebe dez cenários práticos (ex.: Wi-Fi do quarto, sistema bancário interconectando agências nacionais, rede de fibra de um campus universitário). Ele deve arrastar cada cartão para a caixa correspondente: LAN, MAN ou WAN, recebendo pontuação por precisão e justificativa técnica."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "Como uma rede de computadores é definida?",
+            "options": [
+              "Um único computador com vários periféricos conectados",
+              "Dispositivos (nós) interconectados por links de comunicação que usam protocolos padronizados para compartilhar dados, serviços e periféricos",
+              "Apenas a internet",
+              "Um conjunto de roteadores sem nenhum computador"
+            ],
+            "correctOption": 1,
+            "explanation": "Uma rede é formada por nós interligados por links físicos ou sem fio, que seguem regras padronizadas (protocolos) para compartilhar recursos."
+          },
+          {
+            "text": "Qual é a característica de uma LAN?",
+            "options": [
+              "É restrita a um espaço delimitado, como uma casa, sala ou edifício, com altas taxas de transferência e baixíssima latência",
+              "Cobre países e continentes",
+              "Cobre uma cidade inteira",
+              "Funciona apenas com Wi-Fi público"
+            ],
+            "correctOption": 0,
+            "explanation": "A LAN (Local Area Network) abrange um espaço geográfico pequeno e delimitado, com alta velocidade e baixa latência."
+          },
+          {
+            "text": "Qual tipo de rede conecta, por exemplo, diferentes campi de uma universidade espalhados por uma cidade?",
+            "options": ["LAN", "WAN", "NAS", "MAN"],
+            "correctOption": 3,
+            "explanation": "A MAN (Metropolitan Area Network) abrange uma área metropolitana ou municipal. A WAN cobre regiões muito maiores."
+          },
+          {
+            "text": "Qual é o maior exemplo público de WAN?",
+            "options": ["O Wi-Fi do quarto", "A rede de um consultório médico", "A Internet", "A rede de um prédio comercial"],
+            "correctOption": 2,
+            "explanation": "A WAN cobre grandes regiões geográficas, como países ou continentes, e a Internet é o maior exemplo público."
+          },
+          {
+            "text": "Qual dos itens abaixo é um recurso lógico compartilhado em rede?",
+            "options": [
+              "Uma impressora corporativa",
+              "Um servidor de autenticação centralizado",
+              "Um roteador",
+              "Um armazenamento centralizado (NAS)"
+            ],
+            "correctOption": 1,
+            "explanation": "Recursos lógicos incluem bancos de dados unificados, aplicações SaaS e servidores de autenticação. Impressoras, NAS e roteadores são recursos físicos."
+          }
+        ]
+      }
+    },
+    {
+      "order": 2,
+      "title": "Como os Dispositivos se Comunicam?",
+      "contentFile": "redes/aula-2.md",
+      "simulationType": "drag_drop",
+      "simulationConfig": {
+        "name": "Reordenação do Ciclo do Pacote de Dados",
+        "mechanics": "O estudante recebe seis etapas desordenadas que descrevem a comunicação entre um PC cliente e um site. Ele deve arrastá-las para a ordem cronológica correta: 1. Solicitação → 2. Divisão em pacotes → 3. Endereçamento IP → 4. Roteamento → 5. Chegada ao destino → 6. Reconstituição do arquivo."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "No modelo cliente-servidor, quem inicia a solicitação de um recurso?",
+            "options": ["O roteador", "O servidor", "O pacote de dados", "O cliente"],
+            "correctOption": 3,
+            "explanation": "O cliente (navegador, PC, smartphone) inicia a solicitação, e o servidor processa e responde com os dados."
+          },
+          {
+            "text": "O que o cabeçalho (header) de um pacote de dados contém?",
+            "options": [
+              "Apenas o trecho do arquivo que está sendo transportado",
+              "O IP de origem, o IP de destino, o número de sequência e a verificação de erros",
+              "O arquivo completo, sem divisão",
+              "A tabela de roteamento do roteador"
+            ],
+            "correctOption": 1,
+            "explanation": "O cabeçalho traz as informações de endereçamento, ordem e verificação. O trecho do arquivo fica na carga útil (payload)."
+          },
+          {
+            "text": "Como é o formato de um endereço IPv4?",
+            "options": [
+              "32 bits divididos em 4 octetos decimais, como 192.168.1.100",
+              "128 bits em formato hexadecimal",
+              "Um nome legível, como site.com",
+              "Um código gravado de fábrica na placa de rede"
+            ],
+            "correctOption": 0,
+            "explanation": "O IPv4 usa 32 bits em 4 octetos decimais. O IPv6, com 128 bits em hexadecimal, foi criado para ampliar o limite de endereços."
+          },
+          {
+            "text": "O que um roteador faz ao receber um pacote?",
+            "options": [
+              "Reordena os pacotes do arquivo",
+              "Criptografa o conteúdo do pacote",
+              "Analisa o IP de destino e consulta sua tabela de roteamento para decidir o próximo salto",
+              "Divide o arquivo em pacotes"
+            ],
+            "correctOption": 2,
+            "explanation": "O roteador lê o IP de destino no cabeçalho e usa a tabela de roteamento para escolher o melhor caminho até o próximo salto."
+          },
+          {
+            "text": "Por que o vídeo toca na ordem certa mesmo que os pacotes cheguem fora de ordem?",
+            "options": [
+              "Porque os pacotes sempre chegam em ordem",
+              "Porque o computador usa a numeração de sequência do cabeçalho para reordená-los",
+              "Porque o servidor reenvia o vídeo inteiro",
+              "Porque o roteador reordena os pacotes antes de entregar"
+            ],
+            "correctOption": 1,
+            "explanation": "Cada pacote viaja por caminhos diferentes, e o computador de destino usa o número de sequência do cabeçalho para remontar o arquivo."
+          }
+        ]
+      }
+    },
+    {
+      "order": 3,
+      "title": "Conexões, Equipamentos e Segurança Básica",
+      "contentFile": "redes/aula-3.md",
+      "simulationType": "click_diagram",
+      "simulationConfig": {
+        "name": "Diagnóstico de Segurança e Conectividade",
+        "mechanics": "O sistema exibe três ambientes (um escritório corporativo de alta precisão, uma residência pequena e um acesso bancário em local público). O aluno deve selecionar a combinação correta de meio físico (cabo ou Wi-Fi) e protocolo de segurança para cada um, justificando as falhas das combinações incorretas."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "Qual meio de transmissão é o ideal para estações de trabalho fixas e servidores, por oferecer alta estabilidade e baixa latência?",
+            "options": ["Wi-Fi", "Bluetooth", "Cabo Ethernet (UTP, RJ45)", "Ondas de rádio"],
+            "correctOption": 2,
+            "explanation": "O cabo Ethernet é um meio guiado, com altíssima estabilidade, imunidade a interferências por obstáculos e baixíssima latência."
+          },
+          {
+            "text": "O que o modem faz?",
+            "options": [
+              "Converte os sinais analógicos do provedor (fibra, cabo coaxial) em dados digitais que o computador compreende",
+              "Converte endereços IP públicos em privados",
+              "Transforma o sinal do cabo em Wi-Fi",
+              "Aplica a criptografia WPA3 nas senhas"
+            ],
+            "correctOption": 0,
+            "explanation": "O modem (modulador/demodulador) traduz o sinal do provedor em dados digitais. Quem cria a rede local é o roteador."
+          },
+          {
+            "text": "Qual é a função do roteador em uma casa ou empresa?",
+            "options": [
+              "Traduzir o sinal analógico do provedor",
+              "Criptografar as páginas com HTTPS",
+              "Traduzir nomes de sites em endereços IP",
+              "Criar a rede local, distribuir IPs internos e controlar o tráfego entre os aparelhos"
+            ],
+            "correctOption": 3,
+            "explanation": "O roteador recebe o sinal digital do modem e cria a LAN, distribuindo endereços IP internos e controlando o tráfego."
+          },
+          {
+            "text": "Em uma rede Wi-Fi aberta, o que muda ao acessar um site por HTTPS em vez de HTTP?",
+            "options": [
+              "Nada, os dois são igualmente legíveis para um invasor",
+              "Mesmo que os pacotes sejam capturados, o conteúdo trafega ilegível por causa da criptografia (TLS/SSL)",
+              "A rede Wi-Fi passa a exigir senha",
+              "O Wi-Fi fica mais rápido"
+            ],
+            "correctOption": 1,
+            "explanation": "Com HTTP, um invasor com um packet sniffer pode ler a senha em texto puro. Com HTTPS, os dados trafegam criptografados e ilegíveis."
+          },
+          {
+            "text": "Para que servem os padrões WPA2 e WPA3?",
+            "options": [
+              "Substituem o endereço IP dos dispositivos",
+              "Aumentam o alcance do sinal Wi-Fi",
+              "Exigem senha e criptografam o tráfego de rádio entre o dispositivo e o ponto de acesso",
+              "Convertem o sinal de fibra em sinal digital"
+            ],
+            "correctOption": 2,
+            "explanation": "WPA2 e WPA3 são algoritmos de segurança do Wi-Fi: exigem senha e criptografam o tráfego entre o dispositivo e o ponto de acesso."
+          }
+        ]
+      }
+    }
+  ]
+}

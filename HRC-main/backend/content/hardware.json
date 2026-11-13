@@ -1,0 +1,203 @@
+{
+  "track": {
+    "slug": "hardware",
+    "title": "Hardware",
+    "description": "A DEFINIR",
+    "order": 1,
+    "isLocked": false
+  },
+  "lessons": [
+    {
+      "order": 1,
+      "title": "Conhecendo as Peças",
+      "contentFile": "hardware/aula-1.md",
+      "simulationType": "drag_drop",
+      "simulationConfig": {
+        "name": "Mapeamento de Hardware por Arraste-e-Solte",
+        "mechanics": "O estudante visualiza o esquema interno de um gabinete de computador com os conectores destacados. No painel lateral, cartões representando os componentes (CPU, RAM, SSD, GPU, PSU, Placa-mãe) devem ser arrastados para seus respectivos encaixes na imagem, acompanhados da seleção da frase que resume a função técnica daquela peça."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "Qual componente é chamado de “cérebro” do computador, por executar as instruções dos programas e coordenar os demais componentes?",
+            "options": ["GPU", "CPU", "Placa-mãe", "Fonte de alimentação (PSU)"],
+            "correctOption": 1,
+            "explanation": "A CPU executa as instruções, faz cálculos matemáticos e lógicos e coordena o fluxo de trabalho dos demais componentes."
+          },
+          {
+            "text": "O que acontece com os dados guardados na memória RAM quando o computador é desligado ou reiniciado?",
+            "options": [
+              "Ficam salvos de forma permanente",
+              "São copiados automaticamente para o SSD",
+              "São completamente apagados",
+              "Passam a ser guardados na GPU"
+            ],
+            "correctOption": 2,
+            "explanation": "A RAM é um armazenamento volátil: precisa de energia contínua para manter os dados e perde tudo ao desligar ou reiniciar."
+          },
+          {
+            "text": "Qual é a diferença básica entre um SSD e um HD?",
+            "options": [
+              "O SSD usa memória flash, muito rápida; o HD usa discos magnéticos mecânicos, mais lentos",
+              "O SSD é volátil e o HD não é",
+              "O HD usa memória flash e é mais rápido que o SSD",
+              "O SSD só guarda o sistema operacional e o HD só guarda arquivos pessoais"
+            ],
+            "correctOption": 0,
+            "explanation": "Os dois são armazenamento não volátil, mas o SSD usa memória flash de altíssima velocidade, enquanto o HD depende de discos magnéticos mecânicos."
+          },
+          {
+            "text": "Qual é a função da fonte de alimentação (PSU)?",
+            "options": [
+              "Processar gráficos em paralelo",
+              "Armazenar o sistema operacional",
+              "Interligar eletricamente todos os componentes",
+              "Converter a corrente alternada da rede elétrica em corrente contínua estável e de baixa voltagem"
+            ],
+            "correctOption": 3,
+            "explanation": "A PSU transforma a corrente alternada (110V/220V) em corrente contínua (+12V, +5V, +3.3V) para alimentar com segurança os circuitos."
+          },
+          {
+            "text": "Na analogia da cozinha profissional, qual componente representa a bancada de trabalho, onde ficam os ingredientes em uso?",
+            "options": ["SSD", "CPU", "Memória RAM", "Placa-mãe"],
+            "correctOption": 2,
+            "explanation": "A RAM é o espaço de trabalho temporário, com acesso imediato aos dados em uso. O SSD é o despenseiro e a CPU é o chef."
+          }
+        ]
+      }
+    },
+    {
+      "order": 2,
+      "title": "Como as Peças Trabalham Juntas",
+      "contentFile": "hardware/aula-2.md",
+      "simulationType": "click_diagram",
+      "simulationConfig": {
+        "name": "Simulador de Linha de Montagem e Gargalos",
+        "mechanics": "O aluno assume o controle de um painel de testes numérico. O sistema apresenta três configurações hipotéticas de PCs (ex.: processador topo de linha + HD antigo + 4 GB de RAM) e o aluno deve rodar um estresse de carga. O simulador destaca em vermelho qual componente atingiu 100% de uso enquanto os outros ficaram ociosos, exigindo que o aluno selecione o upgrade correto para sanar o gargalo."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "Qual é a ordem do fluxo ideal de dados ao executar um aplicativo?",
+            "options": [
+              "CPU → RAM → SSD → GPU → Monitor",
+              "GPU → CPU → RAM → SSD → Monitor",
+              "SSD → RAM → CPU → GPU → Monitor",
+              "RAM → SSD → GPU → CPU → Monitor"
+            ],
+            "correctOption": 2,
+            "explanation": "Os dados saem do SSD para a RAM, a CPU os processa, as instruções visuais vão para a GPU e ela envia o quadro ao monitor."
+          },
+          {
+            "text": "O que é um gargalo de desempenho (bottleneck)?",
+            "options": [
+              "Quando a capacidade de um componente limita o desempenho potencial de outro",
+              "Um defeito físico que queima uma peça do computador",
+              "Um excesso de tensão fornecido pela fonte",
+              "A falta de atualização do sistema operacional"
+            ],
+            "correctOption": 0,
+            "explanation": "O gargalo ocorre quando a peça de menor capacidade no fluxo de dados limita a produtividade das demais."
+          },
+          {
+            "text": "No exemplo da edição de vídeo 4K com apenas 8 GB de RAM, por que a edição fica lenta e truncada?",
+            "options": [
+              "Porque a CPU é lenta demais",
+              "Porque, sem RAM suficiente, o sistema usa o SSD como memória virtual (paginação), que é bem mais lento que a RAM",
+              "Porque a GPU não suporta a resolução 4K",
+              "Porque o monitor limita a taxa de quadros"
+            ],
+            "correctOption": 1,
+            "explanation": "Sem espaço na RAM, o sistema lê e escreve dados temporários no SSD, cuja taxa de transferência é muito menor. A RAM virou o gargalo."
+          },
+          {
+            "text": "Para que serve o barramento PCI Express (PCIe)?",
+            "options": [
+              "Converter corrente alternada em corrente contínua",
+              "Armazenar dados de forma permanente",
+              "Resfriar a CPU durante cargas pesadas",
+              "Conectar a GPU e SSDs NVMe diretamente à CPU por rotas dedicadas de altíssima largura de banda"
+            ],
+            "correctOption": 3,
+            "explanation": "O PCIe é um barramento gravado na placa-mãe que liga GPU e SSDs NVMe à CPU com alta largura de banda."
+          },
+          {
+            "text": "Qual é a função da RAM no fluxo de dados do computador?",
+            "options": [
+              "Executar os cálculos no lugar da CPU",
+              "Enviar a imagem pronta para o monitor",
+              "Evitar que a CPU precise esperar pela leitura lenta do armazenamento permanente",
+              "Fornecer energia aos demais componentes"
+            ],
+            "correctOption": 2,
+            "explanation": "A RAM guarda os dados em uso com acesso rápido, poupando a CPU de esperar o armazenamento permanente."
+          }
+        ]
+      }
+    },
+    {
+      "order": 3,
+      "title": "Entendendo as Especificações",
+      "contentFile": "hardware/aula-3.md",
+      "simulationType": "drag_drop",
+      "simulationConfig": {
+        "name": "Comparador Técnico e Consultoria de Compras",
+        "mechanics": "A tela exibe três perfis de clientes (ex.: estudante de navegação web, editor de vídeo 4K, desenvolvedor de software) e três fichas técnicas detalhadas de máquinas. O aluno precisa cruzar as especificações (frequência, RAM, tipo de SSD) e associar a máquina ideal para cada perfil com o menor custo financeiro possível."
+      },
+      "quiz": {
+        "questions": [
+          {
+            "text": "A que equivale 1 GHz de frequência (clock) de uma CPU?",
+            "options": [
+              "1 bilhão de ciclos por segundo",
+              "1 milhão de ciclos por segundo",
+              "1 mil ciclos por segundo",
+              "1 bilhão de bytes por segundo"
+            ],
+            "correctOption": 0,
+            "explanation": "O clock indica quantos ciclos o processador executa por segundo, e 1 GHz corresponde a 1 bilhão de ciclos por segundo."
+          },
+          {
+            "text": "O que são threads em um processador?",
+            "options": [
+              "Núcleos físicos extras no chip de silício",
+              "A velocidade de leitura da memória RAM",
+              "O tipo de soquete da placa-mãe",
+              "Divisões lógicas de um núcleo, que permitem gerenciar duas sequências de tarefas ao mesmo tempo (ex.: Hyper-Threading)"
+            ],
+            "correctOption": 3,
+            "explanation": "Threads são divisões lógicas do núcleo físico. Com tecnologias como o Hyper-Threading, um mesmo núcleo gerencia duas sequências de tarefas simultaneamente."
+          },
+          {
+            "text": "Entre os armazenamentos abaixo, qual alcança a maior taxa de leitura e escrita, de cerca de 3500 a 7500 MB/s?",
+            "options": ["HD mecânico SATA", "SSD NVMe (PCIe 4.0)", "SSD SATA III", "Todos têm a mesma velocidade"],
+            "correctOption": 1,
+            "explanation": "O HD SATA fica em torno de 100 a 150 MB/s e o SSD SATA III em 500 a 550 MB/s. O SSD NVMe PCIe 4.0 chega a 3500 a 7500 MB/s."
+          },
+          {
+            "text": "Em relação à DDR4, o que a memória DDR5 oferece?",
+            "options": [
+              "Menor largura de banda e maior consumo de energia",
+              "Exatamente a mesma frequência de operação",
+              "Frequências de operação maiores, maior largura de banda e menor consumo de energia",
+              "Menor consumo de energia, porém menor frequência"
+            ],
+            "correctOption": 2,
+            "explanation": "Gerações mais novas, como a DDR5, entregam frequências maiores, mais largura de banda e menor consumo que a DDR4."
+          },
+          {
+            "text": "O que é o soquete de um processador e por que ele importa na hora de comprar?",
+            "options": [
+              "É o encaixe físico da CPU na placa-mãe e define a compatibilidade entre as duas peças",
+              "É a porta onde se conecta o cabo de rede",
+              "É o tipo de SSD que a CPU aceita",
+              "É o conector que liga a fonte à placa-mãe"
+            ],
+            "correctOption": 0,
+            "explanation": "Intel e AMD usam padrões de soquete específicos (ex.: LGA 1700, AM5), que exigem placas-mãe estritamente compatíveis."
+          }
+        ]
+      }
+    }
+  ]
+}

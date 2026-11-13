@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TrackSlug {
+  hardware
+  redes
+  combinada
+}
+
+enum SimulationType {
+  drag_drop      @map("drag-drop")
+  click_diagram  @map("click-diagram")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  createdAt    DateTime      @default(now())
+  attempts     QuizAttempt[]
+  progress     Progress[]
+  favorites    Favorite[]
+  certificates Certificate[]
+}
+
+model Track {
+  id           Int           @id @default(autoincrement())
+  slug         TrackSlug     @unique
+  title        String
+  description  String
+  order        Int
+  isLocked     Boolean       @default(false)
+  lessons      Lesson[]
+  certificates Certificate[]
+}
+
+model Lesson {
+  id               Int            @id @default(autoincrement())
+  trackId          Int
+  track            Track          @relation(fields: [trackId], references: [id], onDelete: Cascade)
+  title            String
+  order            Int
+  content          String         @db.Text
+  simulationType   SimulationType
+  simulationConfig Json
+  quiz             Quiz?
+  attempts         QuizAttempt[]
+  progress         Progress[]
+
+  @@unique([trackId, order])
+}
+
+model Quiz {
+  id        Int        @id @default(autoincrement())
+  lessonId  Int        @unique
+  lesson    Lesson     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  questions Question[]
+}
+
+model Question {
+  id            Int        @id @default(autoincrement())
+  quizId        Int
+  quiz          Quiz       @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  text          String     @db.Text
+  options       Json
+  correctOption Int
+  explanation   String     @db.Text
+  answers       Answer[]
+  favorites     Favorite[]
+}
+
+model QuizAttempt {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId    Int
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  score       Int
+  timeSpent   Int
+  completedAt DateTime @default(now())
+  answers     Answer[]
+}
+
+model Answer {
+  id             Int         @id @default(autoincrement())
+  attemptId      Int
+  attempt        QuizAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId     Int
+  question       Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  selectedOption Int
+  isCorrect      Boolean
+}
+
+model Progress {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId  Int
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  completed Boolean  @default(false)
+  bestScore Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+}
+
+model Favorite {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId Int
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, questionId])
+}
+
+model Certificate {
+  id       Int      @id @default(autoincrement())
+  userId   Int
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  trackId  Int
+  track    Track    @relation(fields: [trackId], references: [id], onDelete: Cascade)
+  score    Int
+  issuedAt DateTime @default(now())
+
+  @@unique([userId, trackId])
+}
